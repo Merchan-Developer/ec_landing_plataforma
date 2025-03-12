@@ -1,0 +1,131 @@
+<div class="bento-module">
+    <!-- Cada cuadro individual -->
+    <div class="bento-item div10">
+        <h4>¿Cómo clasificar a mis clientes para personalizar las ventas?</h4>
+        <p>Segmentación y arquetipo de clientes aplicando el Value Proposition Canvas y la IA para analizar datos históricos, definir tipos de clientes, predecir comportamientos y tomar decisiones estratégicas.</p>
+    </div>
+    <div class="bento-item div19">
+        <h3>¿Qué oportunidades para innovar hay en mi modelo de negocio?</h3>
+        <p>Identifica mejoras en productos y servicios con el Business Model Canvas y explora nuevas oportunidades aplicando herramientas de vanguardia.</p>
+    </div>
+    <div class="bento-item div20">
+        <h3>¿Por qué me compran mis clientes? ¿Por qué no me compran mis no clientes?</h3>
+        <p>Usa la matriz CREA y preguntas clave para identificar atributos y ventajas competitivas que te permitan destacar y optimizar tu estrategia.</p>
+    </div>
+    <div class="bento-item div23">
+        <h3>¿Cómo me puede la IA ayudar a crear campañas personalizadas con mis clientes?</h3>
+        <p>La IA segmenta con precisión y genera mensajes personalizados adaptados a tus clientes, optimizando estrategias en tiempo real para resultados superiores.</p>
+    </div>
+    <div class="bento-item div24">
+        <h3>¿Qué tengo que saber para usar Chat GPT? ¿Cómo hablarle para que me ayude?</h3>
+        <p>Aprende a estructurar prompts para aprovechar al máximo la IA en tareas como crear propuestas, analizar mercados y mejorar estrategias.</p>
+    </div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    /* Estilos principales */
+    .bento-module {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* 6 columnas iguales en escritorio */
+        grid-template-rows: auto; /* Filas automáticas */
+        gap: 10px; /* Espaciado entre cuadros */
+        width: 100%;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+    }
+
+    /* Estilo de los cuadros */
+    .bento-item {
+        background: rgba(255, 255, 255, 0.3); /* Fondo translúcido */
+        backdrop-filter: blur(10px); /* Efecto vidrio */
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding: 20px; /* Espaciado interno */
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Títulos de los cuadros */
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    /* Texto dentro de los cuadros */
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* Efectos de hover */
+    .bento-item:hover {
+        background-color: #ffc62c;
+        color: #011125;
+        transform: translateY(-5px); /* Elevar cuadro */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Ajustes para cuadros específicos en pantallas grandes */
+    .div10 {
+        grid-column: span 2 / span 2; /* Ocupa 2 columnas */
+        grid-row: span 6 / span 6; /* Ocupa 6 filas */
+    }
+
+    .div19, .div20, .div23, .div24 {
+        grid-column: span 2 / span 2; /* Ocupa 2 columnas */
+        grid-row: span 3 / span 3; /* Ocupa 3 filas */
+    }
+
+    /* Adaptaciones para pantallas móviles */
+    @media (max-width: 768px) {
+        .bento-module {
+            grid-template-columns: 1fr; /* Una sola columna */
+            grid-template-rows: auto; /* Ajusta filas automáticamente */
+            gap: 15px; /* Espaciado entre cuadros */
+        }
+
+        .bento-item {
+            grid-column: span 1 / span 1; /* Cada cuadro ocupa toda la fila */
+            padding: 15px; /* Reduce el margen interno en móviles */
+        }
+
+        h3, h4 {
+            font-size: 1.8rem; /* Aumenta un poco el tamaño del título */
+        }
+
+        p {
+            font-size: 1.3rem; /* Texto más grande en móviles */
+            line-height: 1.8; /* Mejor espaciado entre líneas */
+        }
+    }
+
+    /* Para dispositivos muy pequeños */
+    @media (max-width: 480px) {
+        .bento-item {
+            padding: 12px; /* Margen interno reducido */
+        }
+
+        h3, h4 {
+            font-size: 1.6rem; /* Tamaño más compacto */
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    }
+</style>

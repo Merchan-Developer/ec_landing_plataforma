@@ -1,0 +1,110 @@
+<!-- Contenedor Countdown -->
+<div class="left-aligned-countdown-container">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        /* Contenedor principal alineado a la izquierda */
+        .left-aligned-countdown-container {
+            display: flex;
+            justify-content: flex-start; /* Contenedor hacia la izquierda */
+            align-items: center;
+            padding-left: 10px; /* Espaciado desde el borde izquierdo */
+        }
+
+        /* Estructura del countdown */
+        .left-aligned-countdown {
+            display: flex;
+            gap: 5px; /* Espacio entre los elementos */
+        }
+
+        /* Estilo de los elementos */
+        .left-aligned-countdown-item {
+            background: #011125; /* Fondo azul */
+            color: #fff; /* Texto blanco */
+            padding: 10px;
+            border-radius: 14px;
+            text-align: center;
+            min-width: 80px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+        }
+
+        /* Efecto hover */
+        .left-aligned-countdown-item:hover {
+            transform: translateY(-5px); /* Animación al pasar el ratón */
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo activo al hacer clic */
+        .left-aligned-countdown-item.active {
+            background: #ffc62c; /* Fondo amarillo activo */
+            color: #011125; /* Texto azul */
+            pointer-events: none; /* Desactiva el clic en el elemento activo */
+        }
+
+        /* Estilo de los números */
+        .left-aligned-countdown-item span {
+            font-size: 21px;
+            font-weight: bold; /* Resalta los números */
+            display: block;
+        }
+
+        /* Estilo de los títulos */
+        .left-aligned-countdown-item p {
+            margin: 5px 0 0; /* Espaciado superior */
+            font-size: 9px;
+            text-transform: capitalize; /* Formato de texto con capitalización inicial */
+            font-weight: 600;
+        }
+    </style>
+    <div class="left-aligned-countdown">
+        <div class="left-aligned-countdown-item active">
+            <span id="days">00</span>
+            <p>Días</p>
+        </div>
+        <div class="left-aligned-countdown-item">
+            <span id="hours">00</span>
+            <p>Horas</p>
+        </div>
+        <div class="left-aligned-countdown-item">
+            <span id="minutes">00</span>
+            <p>Minutos</p>
+        </div>
+        <div class="left-aligned-countdown-item">
+            <span id="seconds">00</span>
+            <p>Segundos</p>
+        </div>
+    </div>
+</div>
+
+<!-- Script para interactividad -->
+<script>
+    const countdownItems = document.querySelectorAll(".left-aligned-countdown-item");
+
+    countdownItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            countdownItems.forEach((i) => i.classList.remove("active"));
+            item.classList.add("active");
+        });
+    });
+
+    const countdown = () => {
+        const endDate = new Date("March 23, 2025 00:00:00").getTime();
+        const now = new Date().getTime();
+        const timeDiff = endDate - now;
+
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+    };
+
+    setInterval(countdown, 1000);
+</script>

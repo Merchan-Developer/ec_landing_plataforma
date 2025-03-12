@@ -1,0 +1,206 @@
+<!-- Sección: Locaciones -->
+<div class="banner-locations">
+    <div class="banner-content">
+        <!-- Información de la Ubicación -->
+        <div class="banner-info">
+            <h2 id="location-title">En Dallas</h2>
+            <p id="location-address"><b>Dirección:</b> Av. Amazonas 123, Centro Norte.</p>
+            <p id="location-description">
+                Un ambiente moderno y cómodo, con vistas espectaculares de la ciudad.
+            </p>
+            <div class="location-buttons">
+                <button class="animated-btn active" data-location="dallas">En Dallas</button>
+                <button class="animated-btn" data-location="houston">En Houston</button>
+            </div>
+        </div>
+        <!-- Imagen de la Ubicación -->
+        <div class="banner-image">
+            <img
+                id="location-image"
+                src="https://assets.cdn.filesafe.space/v681Fe2w24Paa2bzz1Tg/media/67c9041f492ec04c87ea2377.webp"
+                alt="Locación"
+            />
+        </div>
+    </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    .banner-locations {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: #fff;
+        padding: 40px;
+        border-radius: 15px;
+        background: #011125; /* Fondo oscuro */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        max-width: 100%;
+        margin: 30px 0;
+        font-family: 'Montserrat', sans-serif; /* Fuente global */
+    }
+
+    .banner-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        width: 100%;
+    }
+
+    .banner-info {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .banner-info h2 {
+        font-size: 28px;
+        font-weight: bold;
+        color: #ffc62c; /* Color destacado */
+        margin-bottom: 10px;
+    }
+
+    .banner-info p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #ddd;
+        margin-bottom: 15px;
+    }
+
+    .location-buttons {
+        display: flex; /* Asegura alineación horizontal */
+        gap: 10px; /* Espacio entre los botones */
+        margin-top: 20px;
+    }
+
+    .animated-btn {
+        font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+        font-size: 16px;
+        font-weight: 600;
+        color: #011125; /* Color del texto */
+        padding: 10px 30px;
+        background: linear-gradient(45deg, #ffc62c, #e6ae28); /* Fondo degradado */
+        border: none;
+        border-radius: 50px; /* Bordes redondeados */
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .animated-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2); /* Brillo */
+        transform: skewX(-30deg);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .animated-btn:hover::before {
+        left: 100%; /* Brillo al pasar el mouse */
+    }
+
+    .animated-btn:hover {
+        transform: scale(1.05); /* Ampliar ligeramente */
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    }
+
+    .animated-btn.active {
+        background: #011125;
+        color: #fff; /* Texto blanco para el botón activo */
+        border: 2px solid #ffc62c; /* Borde visible */
+        pointer-events: none; /* Deshabilitar interacciones */
+    }
+
+    .banner-image {
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .banner-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 15px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .banner-image img.hidden {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    @media (max-width: 768px) {
+        .banner-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .banner-info {
+            padding: 10px;
+        }
+
+        .location-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .banner-image {
+            width: 100%;
+        }
+    }
+</style>
+
+<!-- Script para Interactividad -->
+<script>
+    const locations = {
+        dallas: {
+            title: "En Dallas",
+            address: "Av. Amazonas 123, Centro Norte.",
+            description: "Un ambiente moderno y cómodo, con vistas espectaculares de la ciudad.",
+            image: "https://assets.cdn.filesafe.space/v681Fe2w24Paa2bzz1Tg/media/67c9041f492ec04c87ea2377.webp",
+        },
+        houston: {
+            title: "En Houston",
+            address: "Torre Empresarial, Av. Libertador.",
+            description: "Una locación premium equipada para ofrecer experiencias de lujo.",
+            image: "https://assets.cdn.filesafe.space/v681Fe2w24Paa2bzz1Tg/media/67c9041f492ec04c87ea2377.webp",
+        },
+    };
+
+    const buttons = document.querySelectorAll(".animated-btn");
+    const title = document.getElementById("location-title");
+    const address = document.getElementById("location-address");
+    const description = document.getElementById("location-description");
+    const image = document.getElementById("location-image");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const location = locations[button.dataset.location];
+            title.textContent = location.title;
+            address.innerHTML = `<b>Dirección:</b> ${location.address}`;
+            description.textContent = location.description;
+
+            image.classList.add("hidden");
+            setTimeout(() => {
+                image.src = location.image;
+                image.classList.remove("hidden");
+            }, 300);
+
+            buttons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active"); // Marcar el botón activo
+        });
+    });
+</script>

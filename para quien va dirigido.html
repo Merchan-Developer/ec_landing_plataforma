@@ -1,0 +1,84 @@
+<!-- Sección: ¿Para quién es la Master Class? -->
+<div class="masterclass-card-container">
+    <div class="masterclass-card">
+        <h3>Empresarios</h3>
+        <p>Aprende a aprovechar la IA para tomar decisiones estratégicas y mejorar la eficiencia en tus negocios.</p>
+    </div>
+    <div class="masterclass-card">
+        <h3>Emprendedores</h3>
+        <p>Descubre cómo utilizar la IA para escalar tus ideas y alcanzar el éxito de manera innovadora.</p>
+    </div>
+    <div class="masterclass-card">
+        <h3>Equipos de Ventas</h3>
+        <p>Optimiza tus procesos de ventas y estrategias con herramientas tecnológicas de vanguardia.</p>
+    </div>
+    <div class="masterclass-card">
+        <h3>Agencias de Marketing</h3>
+        <p>Integra la IA en tus campañas para maximizar resultados y sorprender a tus clientes.</p>
+    </div>
+    <div class="masterclass-card">
+        <h3>Profesionales en General</h3>
+        <p>Adquiere el conocimiento y herramientas prácticas para transformar tu trabajo con IA.</p>
+    </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    /* Contenedor de tarjetas */
+    .masterclass-card-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px; /* Espacio reducido entre las tarjetas */
+        flex-wrap: nowrap; /* Los ítems se alinean en una sola fila en pantallas grandes */
+        font-family: 'Montserrat', sans-serif; /* Fuente aplicada globalmente */
+    }
+
+    /* Tarjetas individuales */
+    .masterclass-card {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        border-radius: 14px;
+        width: 19%; /* Ajustado para que los 5 ítems queden en línea horizontal */
+        min-width: 150px;
+        text-align: left;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Hover en las tarjetas */
+    .masterclass-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Títulos de las tarjetas */
+    .masterclass-card h3 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ffc62c;
+        margin-bottom: 10px;
+    }
+
+    /* Texto de las tarjetas */
+    .masterclass-card p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #FFFFFF;
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+        .masterclass-card-container {
+            flex-wrap: wrap; /* Permite que las tarjetas se apilen en teléfonos */
+            justify-content: center;
+        }
+
+        .masterclass-card {
+            width: 100%; /* Ocupa todo el ancho disponible en dispositivos móviles */
+            max-width: 300px;
+        }
+    }
+</style>

@@ -1,0 +1,188 @@
+<!-- Sección de Presentación -->
+<div class="about-section">
+  <div class="about-container">
+    <!-- Contenido textual -->
+    <div class="about-text">
+      <h2 class="about-title">Conoce a Epic Center</h2>
+
+      <p class="about-description">
+        Durante más de 15 años nuestro equipo se ha dedicado a la formación y capacitación, tanto a nivel personal, profesional y empresarial, generando experiencias exitosas en distintos países, además de impulsar el crecimiento y liderazgo de los hispanos en Estados Unidos.
+      </p>
+      <p class="about-description">
+        Conferencias, cursos, entrenamientos, avales, certificaciones y los mejores profesionales de cada área, son los ingredientes para lograr el éxito en cada encuentro formativo. Impulsamos tus metas, conectando ideas, empresas, personas y pasiones.
+      </p>
+    </div>
+
+    <!-- Slider actualizado -->
+    <div class="about-video slider-container">
+      <div class="slider">
+        <div class="slide">
+          <iframe
+            class="video-frame"
+            src="https://www.youtube.com/embed/6namH_c5Ql8?enablejsapi=1"
+            title="Epic Center Video 1"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="slide">
+          <iframe
+            class="video-frame"
+            src="https://www.youtube.com/embed/BSj_50SaGOQ?enablejsapi=1"
+            title="Epic Center Video 2"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <!-- Botones de Control -->
+      <button class="control-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="control-btn next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+  </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  .about-section {
+    padding: 60px 20px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-text {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .about-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  .about-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+
+  /* Slider Container */
+  .slider-container {
+    flex: 1;
+    max-width: 50%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+
+  /* Slider */
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* Ocultar cualquier contenido fuera del contenedor */
+    width: 100%; /* Ajuste dinámico para que no desborde */
+  }
+
+  .slide {
+    min-width: 100%; /* Cada video ocupa todo el ancho disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    border: none; /* Remueve bordes adicionales */
+  }
+
+  /* Botones de control */
+  .control-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .prev {
+    left: 15px; /* Botón más cerca al centro */
+  }
+
+  .next {
+    right: 15px; /* Botón más cerca al centro */
+  }
+
+  /* Estilos Responsivos */
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .about-text {
+      max-width: 100%;
+      order: 2;
+    }
+
+    .slider-container {
+      max-width: 100%;
+      order: 1;
+    }
+
+    iframe {
+      height: 250px;
+    }
+  }
+</style>
+
+<!-- JavaScript -->
+<script>
+  let currentSlide = 0;
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  const iframes = document.querySelectorAll('.video-frame');
+
+  // Función para mover las diapositivas
+  function moveSlide(direction) {
+    // Pausar el video actualmente en reproducción
+    const currentVideo = iframes[currentSlide];
+    currentVideo.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+
+    // Cambiar a la siguiente diapositiva
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  // Habilitar la API de YouTube
+  iframes.forEach((iframe) => {
+    iframe.src += '&enablejsapi=1';
+  });
+</script>

@@ -1,0 +1,184 @@
+<!-- Acordeón de Preguntas Frecuentes -->
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button class="faq-question">¿Es necesario tener conocimientos previos en IA para asistir a esta clase?</button>
+        <div class="faq-answer">
+            <p>No, la clase está diseñada tanto para principiantes como para personas con conocimientos básicos. Explicaremos los conceptos de forma clara y te guiaremos paso a paso en cómo implementar la IA en tu negocio.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿Qué herramientas de inteligencia artificial aprenderé a utilizar?</button>
+        <div class="faq-answer">
+            <p>Veremos diversas herramientas que incluyen plataformas de automatización de procesos (RPA), software de análisis predictivo, chatbots para atención al cliente, y plataformas de marketing personalizado basadas en IA.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿En qué idioma será impartida la clase?</button>
+        <div class="faq-answer">
+            <p>La clase será 100% en español, facilitando la comprensión de todos los conceptos y herramientas explicadas.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿Se entregará material de apoyo durante la clase?</button>
+        <div class="faq-answer">
+            <p>Sí, entregaremos material de apoyo. Sin embargo, es necesario que cada participante traiga su propia computadora portátil, ya que trabajaremos en ejercicios prácticos.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿Puedo hacer preguntas y consultas sobre mi propio negocio?</button>
+        <div class="faq-answer">
+            <p>Sí, durante la clase tendrás la oportunidad de realizar preguntas y consultas personalizadas sobre los retos específicos de tu negocio, y recibirás orientación directa sobre cómo resolverlos con IA.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿Esta clase se enfocará en mi industria o sector?</button>
+        <div class="faq-answer">
+            <p>Sí, incluiremos ejemplos prácticos y casos de éxito adaptados a varios sectores como comercio, servicios, ventas B2B, y más. Además, te enseñaremos a crear prompts personalizados para cualquier nicho.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿Cuánto tiempo tomará implementar estas soluciones de IA en mi negocio?</button>
+        <div class="faq-answer">
+            <p>El tiempo de implementación varía según la solución y el tamaño de tu empresa, pero muchas de las herramientas que presentamos pueden ser implementadas de forma rápida. Algunos participantes pueden comenzar a ver resultados en semanas o días.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿Es necesario contar con un equipo técnico para integrar IA en mi empresa?</button>
+        <div class="faq-answer">
+            <p>No necesariamente. Muchas de las herramientas que enseñaremos están diseñadas para ser amigables para usuarios no técnicos. Sin embargo, si tienes un equipo técnico, podrán aprovechar aún más las soluciones avanzadas.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿Cómo me ayudará la IA a mejorar mi estrategia de ventas?</button>
+        <div class="faq-answer">
+            <p>Aprenderás cómo la IA puede calificar a tus clientes potenciales, identificar leads con mayor probabilidad de conversión y optimizar tu enfoque de ventas para aumentar tus cierres con menos esfuerzo.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿Cuáles son los beneficios inmediatos que puedo esperar tras aplicar la IA en mi negocio?</button>
+        <div class="faq-answer">
+            <p>Algunos beneficios inmediatos incluyen: ahorro de tiempo mediante la automatización de tareas, mejor atención al cliente con chatbots, y mayor precisión en campañas de marketing al dirigirse a audiencias altamente segmentadas.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Estilos CSS Mejorados -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    .faq-accordion {
+        max-width: 800px;
+        margin: 20px auto;
+        font-family: 'Montserrat', sans-serif; /* Aplicar Montserrat */
+        color: #333;
+        background: #fdfdfd;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+    }
+
+    .faq-item {
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background: #f9f9f9;
+    }
+
+    .faq-question {
+        width: 100%;
+        background: #007bff;
+        color: #ffffff;
+        padding: 15px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .faq-question::after {
+        content: '+';
+        font-size: 20px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+    }
+
+    .faq-question.active::after {
+        content: '-';
+        transform: rotate(180deg);
+    }
+
+    .faq-question:hover {
+        background: #0056b3;
+        transform: scale(1.03);
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.3s ease;
+        padding: 0 20px;
+        opacity: 0;
+        background: #ffffff;
+        margin-top: 8px; /* Espacio visual */
+        border-left: 3px solid #007bff;
+    }
+
+    .faq-answer p {
+        margin: 15px 0;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .faq-answer.open {
+        max-height: 500px; /* Espacio suficiente para respuestas */
+        opacity: 1;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.classList.contains('open');
+
+            // Cierra todos los demás
+            document.querySelectorAll('.faq-answer.open').forEach((openAnswer) => {
+                openAnswer.classList.remove('open');
+                openAnswer.previousElementSibling.classList.remove('active');
+            });
+
+            // Alterna el actual
+            if (!isOpen) {
+                answer.classList.add('open');
+                question.classList.add('active');
+            } else {
+                answer.classList.remove('open');
+                question.classList.remove('active');
+            }
+        });
+    });
+</script>

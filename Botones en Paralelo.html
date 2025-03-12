@@ -1,0 +1,100 @@
+<!-- Sección de Botones -->
+<div class="button-module">
+    <div class="btn-container">
+        <button class="animated-btn">Comprar para Dallas</button>
+        <button class="animated-btn">Comprar para Houston</button>
+    </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    .button-module {
+        padding: 20px; /* Espacio alrededor del contenedor */
+    }
+
+    .btn-container {
+        display: flex;
+        flex-direction: column; /* Por defecto, botones en columna */
+        gap: 15px; /* Espaciado entre botones */
+        align-items: center; /* Centrado de los botones */
+    }
+
+    /* Botones estilizados */
+    .animated-btn {
+        font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+        font-size: 16px;
+        font-weight: 600;
+        color: black; /* Color de texto */
+        padding: 15px 30px; /* Espaciado interno */
+        background: linear-gradient(45deg, #ffc62c, #e6ae28); /* Fondo degradado */
+        border: none;
+        border-radius: 50px; /* Bordes redondeados */
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Sombra */
+        cursor: pointer;
+        transition: all 0.4s ease; /* Transiciones suaves */
+        position: relative;
+        overflow: hidden;
+    }
+
+    .animated-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2); /* Efecto brillo */
+        transform: skewX(-30deg);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .animated-btn:hover::before {
+        left: 100%; /* Animación de brillo al pasar el mouse */
+    }
+
+    .animated-btn:hover {
+        transform: scale(1.05); /* Ampliar ligeramente en hover */
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    }
+
+    /* Animación de entrada */
+    .animated-btn {
+        opacity: 0;
+        animation: fadeInUp 1s ease forwards;
+    }
+
+    .animated-btn:nth-child(1) {
+        animation-delay: 0.2s; /* Retraso para el primer botón */
+    }
+
+    .animated-btn:nth-child(2) {
+        animation-delay: 0.4s; /* Retraso para el segundo botón */
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px); /* Aparece desde abajo */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0); /* Aparece en su posición final */
+        }
+    }
+
+    /* Diseño responsivo para pantallas grandes */
+    @media (min-width: 1024px) {
+        .btn-container {
+            flex-direction: row; /* Botones en fila */
+            justify-content: flex-start; /* Alineados a la izquierda */
+            align-items: center; /* Alineación centrada */
+        }
+
+        .animated-btn {
+            max-width: 300px; /* Ancho máximo del botón */
+            width: auto; /* Ancho ajustado automáticamente */
+        }
+    }
+</style>

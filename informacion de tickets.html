@@ -1,0 +1,183 @@
+<!-- Sección de Características -->
+<div class="features-inline-section">
+    <div class="features-inline-container">
+        <!-- Ítem 1: Material de Apoyo -->
+        <div class="feature-inline-item">
+            <div class="icon-wrapper">
+                <img src="https://storage.googleapis.com/msgsndr/v681Fe2w24Paa2bzz1Tg/media/67cc5b862d58674b7733e83a.webp" alt="Material de Apoyo" />
+            </div>
+            <p class="feature-title">Material de apoyo</p>
+        </div>
+
+        <!-- Ítem 2: Biblioteca Virtual -->
+        <div class="feature-inline-item">
+            <div class="icon-wrapper">
+                <img src="https://storage.googleapis.com/msgsndr/v681Fe2w24Paa2bzz1Tg/media/67cc5b86fef41b5b1dff379a.webp" alt="Biblioteca Virtual" />
+            </div>
+            <p class="feature-title">Acceso a una biblioteca virtual con 7 herramientas</p>
+        </div>
+
+        <!-- Ítem 3: eBook -->
+        <div class="feature-inline-item">
+            <div class="icon-wrapper">
+                <img src="https://storage.googleapis.com/msgsndr/v681Fe2w24Paa2bzz1Tg/media/67cc5b866adc02a24f168540.webp" alt="eBook" />
+            </div>
+            <p class="feature-title">1 eBook de cómo incorporar la IA en los negocios</p>
+        </div>
+
+        <!-- Ítem 4: Prompts -->
+        <div class="feature-inline-item">
+            <div class="icon-wrapper">
+                <img src="https://storage.googleapis.com/msgsndr/v681Fe2w24Paa2bzz1Tg/media/67cc5b86c6d47ceae6d2589c.webp" alt="Prompts" />
+            </div>
+            <p class="feature-title">Inventarios con 30 prompts para aplicar en ventas y estrategias</p>
+        </div>
+
+        <!-- Ítem 5: Comunidad -->
+        <div class="feature-inline-item">
+            <div class="icon-wrapper">
+                <img src="https://storage.googleapis.com/msgsndr/v681Fe2w24Paa2bzz1Tg/media/67cc5b866adc02502b168543.webp" alt="Comunidad" />
+            </div>
+            <p class="feature-title">Acceso gratis a nuestra comunidad durante 30 días</p>
+        </div>
+    </div>
+
+    <!-- Botones de Comprar -->
+    <div class="buy-ticket-container">
+        <button class="animated-button">Comprar para Dallas</button>
+        <button class="animated-button">Comprar para Houston</button>
+    </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    .features-inline-section {
+        padding: 50px 20px;
+        background: #011125;
+        border-radius: 14px; /* Esquinas redondeadas para el fondo */
+        color: #fff;
+        font-family: 'Montserrat', sans-serif; /* Fuente aplicada globalmente */
+        text-align: center;
+    }
+
+    .features-inline-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px; /* Espacio reducido entre cuadros */
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .feature-inline-item {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 14px;
+        padding: 20px;
+        width: 180px;
+        height: 220px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-inline-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .icon-wrapper {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+        background: rgba(255, 198, 44, 0.1);
+        border: 1px solid #ffc62c;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon-wrapper img {
+        width: 35px;
+        height: 35px;
+        object-fit: contain;
+    }
+
+    .feature-title {
+        font-size: 14px;
+        font-weight: bold;
+        color: #ffc62c;
+    }
+
+    .buy-ticket-container {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px; /* Espacio entre botones */
+        flex-wrap: wrap; /* Asegura que los botones se ajusten en dispositivos más pequeños */
+    }
+
+    /* Botones estilizados */
+    .animated-button {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: #011125; /* Color del texto */
+        padding: 15px 30px;
+        background: linear-gradient(45deg, #ffc62c, #e6ae28);
+        border: none;
+        border-radius: 50px; /* Bordes redondeados */
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .animated-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2); /* Brillo */
+        transform: skewX(-30deg);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .animated-button:hover::before {
+        left: 100%; /* Animación de brillo */
+    }
+
+    .animated-button:hover {
+        transform: scale(1.05); /* Zoom suave */
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Diseño responsivo para móviles */
+    @media (max-width: 768px) {
+        .features-inline-container {
+            flex-direction: column;
+        }
+
+        .feature-inline-item {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+
+        .buy-ticket-container {
+            flex-direction: column; /* Botones en columna */
+        }
+    }
+</style>

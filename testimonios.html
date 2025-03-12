@@ -1,0 +1,199 @@
+<div id="testimonial-section-home">
+    <div class="testimonial-slider">
+        <div class="slider-fade">
+            <!-- Degradados para PC -->
+            <div class="gradient gradient-left"></div>
+            <div class="gradient gradient-right"></div>
+            <div class="slider-track">
+                <!-- Testimonios -->
+                <div class="testimonial">
+                    <img src="https://assets.cdn.filesafe.space/v681Fe2w24Paa2bzz1Tg/media/67c8e232cd9cc5fe388eef04.png" alt="Icono">
+                    <h4>John Doe</h4>
+                    <p>Conocí los beneficios del servicio, y definitivamente lo recomiendo a todos.</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://assets.cdn.filesafe.space/v681Fe2w24Paa2bzz1Tg/media/67c8e232cd9cc5fe388eef04.png" alt="Icono">
+                    <h4>Jane Smith</h4>
+                    <p>Una experiencia increíble, realmente superó mis expectativas.</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://assets.cdn.filesafe.space/v681Fe2w24Paa2bzz1Tg/media/67c8e232cd9cc5fe388eef04.png" alt="Icono">
+                    <h4>Michael Johnson</h4>
+                    <p>El equipo es súper profesional. Estoy muy satisfecho con los resultados.</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://assets.cdn.filesafe.space/v681Fe2w24Paa2bzz1Tg/media/67c8e232cd9cc5fe388eef04.png" alt="Icono">
+                    <h4>Emily Davis</h4>
+                    <p>Definitivamente recomendaré este servicio a todos mis amigos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    /* Estilos encapsulados */
+    #testimonial-section-home {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        font-family: 'Montserrat', sans-serif; /* Aplicar fuente global */
+    }
+
+    #testimonial-section-home .testimonial-slider {
+        width: 90%;
+        max-width: 1200px;
+        position: relative;
+    }
+
+    #testimonial-section-home .slider-fade {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Degradados en los extremos */
+    #testimonial-section-home .gradient {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 60px;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    #testimonial-section-home .gradient-left {
+        left: 0;
+        background: linear-gradient(to right, #011125, transparent);
+    }
+
+    #testimonial-section-home .gradient-right {
+        right: 0;
+        background: linear-gradient(to left, #011125, transparent);
+    }
+
+    /* Ocultar degradado en móviles */
+    @media (max-width: 768px) {
+        #testimonial-section-home .gradient {
+            display: none;
+        }
+    }
+
+    #testimonial-section-home .slider-track {
+        display: flex;
+        transition: none; /* Movimiento constante */
+    }
+
+    #testimonial-section-home .testimonial {
+        flex: 0 0 calc((100% - 8%) / 4);
+        margin: 10px 1%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #testimonial-section-home .testimonial img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        border: 3px solid #fff;
+    }
+
+    #testimonial-section-home .testimonial h4 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    #testimonial-section-home .testimonial p {
+        font-size: 12px;
+        line-height: 1.5;
+        color: #dcdcdc;
+        margin: 0;
+    }
+
+    /* Móviles: Slide por slide */
+    @media (max-width: 768px) {
+        #testimonial-section-home .testimonial {
+            flex: 0 0 100%; /* Mostrar un testimonio por vez */
+            margin: 10px 0;
+        }
+
+        #testimonial-section-home .slider-track {
+            transition: transform 0.7s ease-in-out;
+        }
+    }
+</style>
+
+<script>
+    const sliderTrack = document.querySelector("#testimonial-section-home .slider-track");
+    const testimonials = [...sliderTrack.children];
+
+    // Clonar elementos para crear bucle infinito
+    testimonials.forEach((testimonial) => {
+        const cloneStart = testimonial.cloneNode(true);
+        const cloneEnd = testimonial.cloneNode(true);
+        sliderTrack.prepend(cloneStart);
+        sliderTrack.appendChild(cloneEnd);
+    });
+
+    let currentPosition = 0;
+    const scrollSpeed = 0.5; // Velocidad más lenta
+    const totalWidth = sliderTrack.scrollWidth;
+
+    function infiniteScroll() {
+        // Movimiento hacia la izquierda
+        currentPosition -= scrollSpeed;
+
+        // Ajustar posición al final para simular continuidad
+        if (Math.abs(currentPosition) >= totalWidth / 2) {
+            currentPosition = 0;
+        }
+
+        sliderTrack.style.transform = `translateX(${currentPosition}px)`;
+        requestAnimationFrame(infiniteScroll); // Animación continua
+    }
+
+    function slideBySlide() {
+        let currentIndex = 0;
+
+        function moveNext() {
+            currentIndex++;
+            if (currentIndex >= testimonials.length) {
+                currentIndex = 0;
+            }
+            sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        setInterval(moveNext, 4000); // Cambia cada 4 segundos (más lento)
+    }
+
+    // Detecta si es móvil o PC
+    if (window.innerWidth <= 768) {
+        slideBySlide(); // Comportamiento para móviles
+    } else {
+        requestAnimationFrame(infiniteScroll); // Movimiento constante para PC
+    }
+
+    // Ajustar al cambiar el tamaño de la pantalla
+    window.addEventListener("resize", () => {
+        if (window.innerWidth <= 768) {
+            clearInterval();
+            slideBySlide();
+        } else {
+            requestAnimationFrame(infiniteScroll);
+        }
+    });
+</script>

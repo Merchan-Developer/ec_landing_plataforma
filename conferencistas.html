@@ -1,0 +1,184 @@
+<section class="conferencistas">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    /* Estilo de la sección */
+    .conferencistas {
+      padding: 50px 0;
+      color: inherit;
+      font-family: 'Montserrat', sans-serif; /* Fuente global */
+    }
+
+    /* Contenedor principal */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    /* Tarjetas */
+    .card {
+      position: relative;
+      background: #011125;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Imagen ajustada */
+    .card img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 14px; /* Bordes redondeados */
+      border: 2px solid #ffffff; /* Borde blanco delgado */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Contenido */
+    .card-content {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      font-size: 22px;
+      color: #ffc62c;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #d4d4d4;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Botón estilizado */
+    .card-content button {
+      font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+      font-size: 16px;
+      font-weight: 600;
+      color: #011125; /* Color del texto */
+      padding: 15px 30px; /* Espaciado interno */
+      background: linear-gradient(45deg, #ffc62c, #e6ae28); /* Fondo degradado */
+      border: none;
+      border-radius: 50px; /* Bordes redondeados */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Sombra */
+      cursor: pointer;
+      transition: all 0.4s ease; /* Transiciones suaves */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-content button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2); /* Efecto brillo */
+      transform: skewX(-30deg);
+      transition: all 0.5s ease-in-out;
+    }
+
+    .card-content button:hover::before {
+      left: 100%; /* Animación de brillo al pasar el mouse */
+    }
+
+    .card-content button:hover {
+      transform: scale(1.05); /* Ampliar ligeramente en hover */
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    }
+
+    /* Animación de entrada */
+    .card-content button {
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .card-content button:nth-child(1) {
+      animation-delay: 0.2s; /* Retraso para el primer botón */
+    }
+
+    .card-content button:nth-child(2) {
+      animation-delay: 0.4s; /* Retraso para el segundo botón */
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px); /* Aparece desde abajo */
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0); /* Aparece en su posición final */
+      }
+    }
+
+    /* Decoración con animación */
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -100%;
+      left: -100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent);
+      z-index: -1;
+      animation: rotate 6s infinite linear;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <div class="container">
+    <!-- Primera Tarjeta -->
+    <div class="card">
+      <img src="https://storage.googleapis.com/msgsndr/v681Fe2w24Paa2bzz1Tg/media/67d096936028549318b93184.webp" alt="Caro Pereira">
+      <div class="card-content">
+        <h3>Caro Pereira</h3>
+        <p>
+          Periodista y docente venezolana con experiencia en comunicación estratégica y marketing digital. Ha trabajado con más de 75 marcas ayudándolas a conectar con sus audiencias.
+        </p>
+        <button>Más Información</button>
+      </div>
+    </div>
+    <!-- Segunda Tarjeta -->
+    <div class="card">
+      <img src="https://storage.googleapis.com/msgsndr/v681Fe2w24Paa2bzz1Tg/media/67d096933d108838f7dd2317.webp" alt="Pedro Mateos">
+      <div class="card-content">
+        <h3>Pedro Mateos</h3>
+        <p>
+          Especialista en oratoria y ventas, Caro Pereira ha transformado la vida profesional de más de 7.000 personas a través de estrategias persuasivas y efectivas.
+        </p>
+        <button>Más Información</button>
+      </div>
+    </div>
+  </div>
+</section>
